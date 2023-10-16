@@ -10,6 +10,7 @@ export async function PUT(
   // console.log('count: %2d', i);
   
   try {
+    await prisma.$connect()
     await prisma.order.update({
       where: {
         intent_id: intentId,
@@ -26,5 +27,7 @@ export async function PUT(
       JSON.stringify({ message: "Something went wrong!" }),
       { status: 500 }
     );
+  }finally{
+    await prisma.$disconnect()
   }
 };

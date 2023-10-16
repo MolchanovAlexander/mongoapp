@@ -8,7 +8,9 @@ export async function POST(
   { params }: { params: { orderId: string } }
 ) {
   const { orderId } = params;
-
+  console.log(orderId);
+  
+  await prisma.$connect()
   const order = await prisma.order.findUnique({
     where: {
       id: orderId,
@@ -30,7 +32,7 @@ export async function POST(
       },
       data: { intent_id: paymentIntent.id },
     });
-
+    await prisma.$disconnect()
     return new NextResponse(
       JSON.stringify({ clientSecret: paymentIntent.client_secret }),
       { status: 200 }
