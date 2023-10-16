@@ -23,7 +23,7 @@ const PayPage = ({ params }: { params: { id: string } }) => {
         if (isHydrated) {
 
           const res = await fetch(
-            `http://localhost:3000/api/create-intent/${id}`,
+            `${process.env.BASE_URL}/api/create-intent/${id}`,
             {
               method: "POST",
             }

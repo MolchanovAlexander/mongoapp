@@ -86,7 +86,7 @@ const AddPage = () => {
     try {
       const url = await upload();
       
-      const res = await fetch("http://localhost:3000/api/products", {
+      const res = await fetch(`${process.env.BASE_URL}/api/products`, {
         method: "POST",
         body: JSON.stringify({
           img: url,
@@ -167,6 +167,7 @@ const AddPage = () => {
             onChange={handleChange}
           />
         </div>
+        {/* ------------FEATURED CHECKBOX -------------------------- */}
         <div className="w-full flex flex-col gap-2 ">
           <label className="text-sm">Featured</label>
           <input className=" p-4 self-start checked:border-slate-800"
@@ -175,9 +176,7 @@ const AddPage = () => {
             checked={featured}
             onClick={()=>setFeatured((prev)=> !prev)}
             readOnly
-            
-          /> 
-          
+          />  
         </div>
         <div className="w-full flex flex-col gap-2">
           <label className="text-sm">Options</label>
