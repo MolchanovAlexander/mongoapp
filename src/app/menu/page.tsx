@@ -14,7 +14,7 @@ const getData = async () => {
   return res.json()
 }
 
-const MenuPage = async () => { <div> menu page 1234 </div>}
+const MenuPage = async () => {return <div> menu page 1234 </div>}
 
 //   const menu: MenuType = await getData();
 
