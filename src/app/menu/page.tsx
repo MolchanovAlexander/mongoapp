@@ -7,7 +7,7 @@ import React from "react";
 const getData = async () => {
 
   const res = await fetch(`${process.env.BASE_URL}/api/categories`)
-   console.log(process.env.BASE_URL)
+   
   if (!res.ok) {
     throw new Error("Failed fetch")
   }

@@ -4,6 +4,8 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export const AddProductButton = () => {
+    console.log(process.env.BASE_URL);
+    
     const { data: session, } = useSession();
     if (session?.user.isAdmin) {
         return <Link href={"/add"} className="bg-red-500 p-4 text-white w-48 
