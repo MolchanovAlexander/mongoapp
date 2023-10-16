@@ -21,7 +21,7 @@ const CartPage = () => {
       router.push("/login");
     } else {
       try {
-        const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+        
                 
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders`, {
           method: "POST",
@@ -34,6 +34,8 @@ const CartPage = () => {
           }),
         });
         const data = await res.json()
+        console.log(data);
+        
         router.push(`/pay/${data.id}`)
       } catch (err) {
         console.log(err);
