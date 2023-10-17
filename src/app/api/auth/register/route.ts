@@ -11,7 +11,8 @@ export const POST = async (req: NextRequest) => {
     const hashedPassword = await bcrypt.hash(password, 5);
 
     try {
-        const product = await prisma.user.create({
+        await prisma.$connect()
+        await prisma.user.create({
             data: { name: name, email: email, password: hashedPassword }
         });
         return new NextResponse("User has been created", {
@@ -21,5 +22,7 @@ export const POST = async (req: NextRequest) => {
         return new NextResponse(err.message, {
             status: 500,
         });
+    }finally{
+        await prisma.$disconnect()
     }
 };
