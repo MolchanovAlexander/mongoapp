@@ -57,7 +57,7 @@ const OrdersPage = () => {
 
 
   return (
-    <div className="p-4 lg:px-20 xl:px-40">
+    <div className="p-2 lg:px-20 xl:px-40">
       <table className="w-full border-separate border-spacing-3">
         <thead>
           <tr className="text-left">
@@ -68,7 +68,7 @@ const OrdersPage = () => {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {data.map((item: OrderType) => (
             <tr className={`${item.status !== "delivered" && "bg-red-50"}`} key={item.id}>
               <td className="hidden md:block py-6 px-1">{item.id}</td>
@@ -82,12 +82,12 @@ const OrdersPage = () => {
               {session?.user.isAdmin ? (
                 <td>
                   <form
-                    className="flex items-center justify-center gap-4"
+                    className="flex items-center justify-start gap-2"
                     onSubmit={(e) => handleUpdate(e, item.id)}
                   >
                     <input
                       placeholder={item.status}
-                      className="p-2 ring-1 ring-red-100 rounded-md"
+                      className="p-2 ring-1 ring-red-100 rounded-md w-full"
                     />
                     <button className="bg-red-400 p-2 rounded-full">
                       <Image src="/edit.png" alt="" width={20} height={20} />
