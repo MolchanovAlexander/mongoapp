@@ -85,8 +85,9 @@ const AddPage = () => {
 
     try {
       const url = await upload();
+      console.log(process.env.NEXT_PUBLIC_BASE_URL);
       
-      const res = await fetch(`${process.env.BASE_URL}/api/products`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
         method: "POST",
         body: JSON.stringify({
           img: url,
@@ -118,7 +119,7 @@ const AddPage = () => {
           >
             <Image src="/upload.png" alt="" width={30} height={20} />
 
-            <span> Upload an Image</span>{file && <Image src={URL.createObjectURL(file)} alt="" className="w-10" />}
+            <span> Upload an Image</span>{file && <Image src={URL.createObjectURL(file)} alt="" width={40} height={40} className="w-10" />}
           </label>
           <input
             type="file"
