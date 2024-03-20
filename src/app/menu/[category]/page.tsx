@@ -9,8 +9,6 @@ const getData = async (category:string) => {
   if (!res.ok) {
     throw new Error("Failed fetch")
   }
-  console.log(res.json());
-  
   return res.json()
 }
 type Props = {
