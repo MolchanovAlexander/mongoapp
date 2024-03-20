@@ -82,11 +82,8 @@ const AddPage = () => {
   // post new product -------------------------------------------------
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
-      const url = await upload();
-      console.log(process.env.NEXT_PUBLIC_BASE_URL);
-      
+      const url = await upload();      
       const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
         method: "POST",
         body: JSON.stringify({
@@ -96,10 +93,8 @@ const AddPage = () => {
           options,
         }),
       });
-
       const data = await res.json();
       router.push(`/product/${data.id}`);
-
     } catch (err) {
       console.log(err);
     }

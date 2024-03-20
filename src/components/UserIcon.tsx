@@ -4,9 +4,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 
 export const UserIcon = () => {
-  const { data } = useSession();
-  console.log(data?.user);
-  
+  const { data } = useSession();  
   return (
     <div className="flex justify-end min-w-30 basis-auto ">
       {data?.user.image ? (
