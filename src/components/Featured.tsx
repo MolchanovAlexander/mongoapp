@@ -5,10 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-
 const getData = async () => {
   
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
+    cache: "no-store"
+  });
 
   if (!res.ok) {
     throw new Error("Failed fetch")
@@ -55,7 +56,6 @@ const Featured = async () => {
       </div>
     </div>
   );
-};
+}
 
 export default Featured;
-

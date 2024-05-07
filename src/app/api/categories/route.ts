@@ -8,6 +8,7 @@ export const GET = async () => {
   try {
     await prisma.$connect();
     const categories = await prisma.category.findMany();
+    console.log(categories, " api categories log");
     return new NextResponse(JSON.stringify(categories), { status: 200 });
   } catch (err) {
     console.log(err);

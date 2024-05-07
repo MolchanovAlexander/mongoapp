@@ -20,9 +20,7 @@ const CartPage = () => {
     if (!session) {
       router.push("/login");
     } else {
-      try {
-        
-                
+      try {             
         const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -33,15 +31,13 @@ const CartPage = () => {
             userEmail: session.user.email,
           }),
         });
-        const data = await res.json()
-        console.log(data);
-        
+        const data = await res.json()        
         router.push(`/pay/${data.id}`)
       } catch (err) {
-        console.log(err);
+        console.log(err, " handle checkout error");
       }
     }
-  };
+  }
 
 
   return (
