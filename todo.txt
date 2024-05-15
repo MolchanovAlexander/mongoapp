@@ -1,3 +1,3 @@
 1 - login with credentials and google(facebook) +;
 2 - migrate from docker postgres to mongoDB + ;
-3 - deploy on vercel - ;
+3 - deploy on vercel + ;
